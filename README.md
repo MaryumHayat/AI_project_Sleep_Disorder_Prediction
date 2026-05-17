@@ -98,7 +98,7 @@ The backend utilizes an optimized pipeline to handle both structured demographic
 1. **Text Vectorization:** User text input is vectorized using the pre-trained `tfidf.pkl` weights to extract linguistic features.
 2. **Categorical Encoding:** Inputs such as gender are dynamically transformed using `gender_encoder.pkl`.
 3. **Inference:** The processed feature array is fed into the predictive model (`model.pkl`).
-4. **Decoding:** The numerical output is mapped back to its human-readable class name using `target_encoder.pkl` and rendered directly onto `result.html`.
+4. **Decoding:** The numerical output is mapped back to its human-readable class name using `target_encoder.pkl`.
 
 ---
 
