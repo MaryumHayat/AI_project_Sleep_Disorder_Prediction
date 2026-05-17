@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Diagnosis Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            /* Firefly GIF Background */
+            background: url("{{ url_for('static', filename='bgv2.gif') }}") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        /* Glassmorphism Effect */
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #e0e0ff;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(173, 216, 230, 0.5);
+        }
+
+        .result-box {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4); /* Dark contrast for the result */
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .diagnosis {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff9e9e; /* Soft red/pink for health alerts */
+            display: block;
+            text-shadow: 0 0 15px rgba(255, 158, 158, 0.3);
+        }
+
+        p {
+            color: #ccd6f6;
+            line-height: 1.6;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Analysis Results</h1>
+        <p>Based on the symptoms provided, the AI predicts:</p>
+        
+        <div class="result-box">
+            <span class="diagnosis">{{ diagnosis }}</span>
+        </div>
+        
+        <p style="font-size: 0.85rem; font-style: italic;">
+            Disclaimer: Please consult a medical professional for a formal diagnosis.
+        </p>
+        
+        <a href="/">← Analyze Another Patient</a>
+    </div>
+</body>
+</html>

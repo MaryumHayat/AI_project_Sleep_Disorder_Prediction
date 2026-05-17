@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SomnoTrack AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="bg-gif-hero"></div>
+        <div class="hero-content">
+            <h1>SomnoTrack AI</h1>
+            <p>Advanced Sleep Intelligence System</p>
+            <button class="hero-btn" onclick="scrollToForm()">Start Analysis</button>
+        </div>
+    </section>
+    
+    <div class="main-content" id="formSection">
+        <div class="bg-gif-main"></div>
+
+        <section class="form-section">
+            <div class="form-card">
+                <h2>Sleep Analyzer AI</h2>
+                <form id="predictionForm">
+                    <input type="number" id="age" name="age" placeholder="Enter Age" required>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <textarea id="description" name="description" placeholder="Describe your sleep issues..." required></textarea>
+                    <button type="submit" class="analyze-btn">Analyze Sleep</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="loader-container" id="loadingDots" style="display: none;">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <section class="result-section">
+            <div class="result-card">
+                <div id="emoji">😴</div>
+                <h1 id="statusText">Analysis Results</h1>
+                <p><br> Based on the symptoms provided, the AI predicts:</p>
+                <div class="result-box">
+                    <span class="diagnosis" id="diagnosisResult">{{ diagnosis }}</span>
+                </div>
+                
+                <p style="font-size: 0.85rem; font-style: italic;">
+                    <br><strong>Disclaimer:</strong> Please consult a medical professional for a formal diagnosis.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
